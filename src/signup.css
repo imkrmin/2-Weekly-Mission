@@ -1,5 +1,5 @@
 * {
-  Box-sizing:border-box
+  Box-sizing: border-box
 }
 
 :root {
@@ -86,6 +86,7 @@ form {
 .user-password-again {
   display: flex;
   flex-direction: column;
+
   gap: 12px;
 }
 
@@ -110,6 +111,10 @@ input {
   background: var(--linkbrary-white, #FFF);
 }
 
+input:focus {
+  outline: 1px solid #6D6AFE;
+}
+
 .eye-icon {
   position: relative;
 }
@@ -118,11 +123,6 @@ input {
   position: absolute;
   right: 17px;
   top: 18px;
-}
-
-
-input:focus {
-  outline: 1px solid #6D6AFE;
 }
 
 button {
@@ -192,4 +192,26 @@ button {
   background-color: #ffffff;
   border: 1px solid #D3D4DD;
   border-radius: 50%;
+}
+
+
+/* mobile */
+
+@media (max-width: 767px) {
+  body {
+    padding: 120px 32px 232px 33px;
+    width: 100%;
+  }
+
+  input {
+    width: 325px;
+  }
+
+  button {
+    width: 325px;
+  }
+
+  .social-login {
+    width: 325px;
+  }
 }
