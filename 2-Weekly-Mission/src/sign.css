@@ -81,16 +81,20 @@ header {
   row-gap: 1.2rem;
 }
 
-.sign-password {
+.sign-password,
+#sign-password-again {
   position: relative;
 }
 
-.sign-input-label {
+#sign-email,
+#sign-password {
   font-size: 1.4rem;
   font-weight: 400;
 }
 
-.sign-input {
+#sign-email,
+#sign-password,
+#sign-password-again {
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray20);
