@@ -75,6 +75,10 @@ header {
   row-gap: 2.4rem;
 }
 
+input:focus {
+  outline: 1px solid #6D6AFE;
+}
+
 .sign-input-box {
   display: flex;
   flex-direction: column;
