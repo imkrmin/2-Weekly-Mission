@@ -1,29 +1,65 @@
-/** 로그인 */
-const InputUserEmail = document.querySelector("#sign-email");
-const noneMessageEmail = document.querySelector(".none-message-email");
-const wrongMessageEmail = document.querySelector(".wrong-message-email");
+/** 이메일 */
+const signInputBox = document.querySelector(".sign-input-box");
+const inputUserEmail = document.querySelector("#sign-email");
+const errorMessageEmail = document.querySelector(".error-message-email");
 
 function validateEmail() {
-  const userEmail = InputUserEmail.value;
+  const userEmail = inputUserEmail.value;
   if (userEmail === "") {
-    noneMessageEmail.style.color = "red";
-    noneMessageEmail.style.display = "block";
-    InputUserEmail.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
+    errorMessageEmail.textContent = "이메일을 입력해주세요.";
+    errorMessageEmail.style.color = "red";
+    errorMessageEmail.style.display = "block";
+    inputUserEmail.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
+    return noneMessageEmail;
   } else if (!isValidEmail()) {
-    noneMessageEmail.style.display = "none";
-    wrongMessageEmail.style.color = "red";
-    wrongMessageEmail.style.display = "block";
-    InputUserEmail.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
+    errorMessageEmail.textContent = "올바른 이메일 주소가 아닙니다.";
+    errorMessageEmail.style.color = "red";
+    errorMessageEmail.style.display = "block";
+    inputUserEmail.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
+    return wrongMessageEmail;
   } else {
-    noneMessageEmail.style.display = "none";
-    wrongMessageEmail.style.display = "none";
+    errorMessageEmail.style.display = "none";
+    inputUserEmail.style.border = "1px solid var(--gray20)";
   }
 }
 
 function isValidEmail() {
-  let regExp =
+  const regExp =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-  return regExp.test(InputUserEmail.value);
+  return regExp.test(inputUserEmail.value);
 }
 
-InputUserEmail.addEventListener("focusout", validateEmail);
+inputUserEmail.addEventListener("focusout", validateEmail);
+
+/** 비밀번호 */
+const inputUserPassword = document.querySelector("#sign-password");
+const errorMessagePassword = document.querySelector(".error-message-password");
+const eyeButton = document.querySelector(".eye-button");
+
+function validatePassword() {
+  const userPassword = inputUserPassword.value;
+  if (userPassword === "") {
+    errorMessagePassword.textContent = "비밀번호를 입력해주세요.";
+    errorMessagePassword.style.color = "red";
+    errorMessagePassword.style.display = "block";
+    inputUserPassword.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
+    eyeButton.style.height = "6.1rem";
+  } else if (!strongPassword(userPassword)) {
+    errorMessagePassword.textContent =
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+    errorMessagePassword.style.color = "red";
+    errorMessagePassword.style.display = "block";
+    inputUserPassword.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
+    eyeButton.style.height = "6.1rem";
+  } else {
+    errorMessagePassword.style.display = "none";
+    eyeButton.style.height = "1.6rem";
+    inputUserPassword.style.border = "1px solid var(--gray20)";
+  }
+}
+
+function strongPassword(str) {
+  return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/.test(str);
+}
+
+inputUserPassword.addEventListener("focusout", validatePassword);

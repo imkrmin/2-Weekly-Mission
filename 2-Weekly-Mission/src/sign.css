@@ -76,7 +76,7 @@ header {
 }
 
 input:focus {
-  outline: 1px solid #6D6AFE;
+  outline: 1px solid #6d6afe;
 }
 
 .sign-input-box {
@@ -106,8 +106,9 @@ input:focus {
   line-height: 150%;
 }
 
-.none-message-email,
-.wrong-message-email {
+.error-message-email,
+.error-message-password,
+.error-message-password-again {
   display: none;
 }
 
