@@ -79,6 +79,10 @@ function validatePasswordAgain() {
     errorMessagePasswordAgain.style.color = "red";
     errorMessagePasswordAgain.style.display = "block";
     inputUserPassword.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
+  } else if (userPasswordAgain !== inputUserPassword.value) {
+    errorMessagePasswordAgain.textContent = "비밀번호가 일치하지 않아요.";
+    errorMessagePasswordAgain.style.color = "red";
+    errorMessagePasswordAgain.style.display = "block";
   } else {
     errorMessagePasswordAgain.style.display = "none";
     inputUserPasswordAgain.style.border = "1px solid var(--gray20)";
@@ -86,3 +90,5 @@ function validatePasswordAgain() {
 }
 
 inputUserPasswordAgain.addEventListener("focusout", validatePasswordAgain);
+
+/** 회원가입 버튼 */

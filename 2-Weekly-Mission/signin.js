@@ -10,13 +10,11 @@ function validateEmail() {
     errorMessageEmail.style.color = "red";
     errorMessageEmail.style.display = "block";
     inputUserEmail.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
-    return noneMessageEmail;
   } else if (!isValidEmail()) {
     errorMessageEmail.textContent = "올바른 이메일 주소가 아닙니다.";
     errorMessageEmail.style.color = "red";
     errorMessageEmail.style.display = "block";
     inputUserEmail.style.border = "1px solid var(--linkbrary-red, #FF5B56)";
-    return wrongMessageEmail;
   } else {
     errorMessageEmail.style.display = "none";
     inputUserEmail.style.border = "1px solid var(--gray20)";
