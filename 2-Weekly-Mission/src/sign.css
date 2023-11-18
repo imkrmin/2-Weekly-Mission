@@ -75,30 +75,22 @@ header {
   row-gap: 2.4rem;
 }
 
-input:focus {
-  outline: 1px solid #6d6afe;
-}
-
 .sign-input-box {
   display: flex;
   flex-direction: column;
   row-gap: 1.2rem;
 }
 
-.sign-password,
-#sign-password-again {
+.sign-password {
   position: relative;
 }
 
-#sign-email,
-#sign-password {
+.sign-input-label {
   font-size: 1.4rem;
   font-weight: 400;
 }
 
-#sign-email,
-#sign-password,
-#sign-password-again {
+.sign-input {
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray20);
@@ -106,19 +98,33 @@ input:focus {
   line-height: 150%;
 }
 
-.error-message-email,
-.error-message-password,
-.error-message-password-again {
-  display: none;
-}
-
 .sign-input:focus {
   border-color: var(--primary);
 }
 
+.sign-input.sign-input-error {
+  border-color: var(--red);
+}
+
+.sign-input.sign-input-error:focus {
+  border-color: var(--red);
+}
+
+.error-message {
+  display: none;
+  margin-top: -0.4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--red);
+}
+
+.error-message.error-message-on {
+  display: inline-block;
+}
+
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
