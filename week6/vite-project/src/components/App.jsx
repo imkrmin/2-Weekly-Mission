@@ -1,7 +1,7 @@
 import "../style/App.css";
 import Navbar from "./Navbar";
 // import Header from "./Header";
-// import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar";
 // import Article from "./Article";
 import Footer from "./Footer";
 
@@ -9,9 +9,9 @@ function App() {
   return (
     <div>
       <Navbar />
-      {/* <Header />
+      {/* <Header /> */}
       <SearchBar />
-      <Article /> */}
+      {/* <Article /> */}
       <Footer />
     </div>
   );
