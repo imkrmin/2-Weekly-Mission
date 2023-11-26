@@ -1,17 +1,17 @@
-import "../style/App.css";
-import Navbar from "./Navbar";
+import "../style/Landing.css";
+import Nav from "./Nav";
 // import Header from "./Header";
 import SearchBar from "./SearchBar";
-// import Article from "./Article";
+// import CardList from "./CardList";
 import Footer from "./Footer";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <Nav />
       {/* <Header /> */}
       <SearchBar />
-      {/* <Article /> */}
+      {/* <CardList /> */}
       <Footer />
     </div>
   );

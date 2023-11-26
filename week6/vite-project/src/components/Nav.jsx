@@ -1,13 +1,13 @@
 import "../style/Landing.css";
 
-function Navbar() {
+function Nav() {
   return (
     <nav>
       <div className="gnb">
         <a href="index.html">
           <img
             className="logo"
-            src="../../images/logo.svg"
+            src="../src/assets/logo.svg"
             alt="홈으로 연결된 Linkbrary 로고"
           />
         </a>
@@ -19,4 +19,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Nav;

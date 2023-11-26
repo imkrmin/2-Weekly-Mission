@@ -1,6 +1,6 @@
 import "../style/Landing.css";
 
-function footer() {
+function Footer() {
   return (
     <footer>
       <div className="footer-box">
@@ -20,7 +20,7 @@ function footer() {
             rel="noopener noreferrer"
           >
             <img
-              src="../../images/facebook.svg"
+              src="../src/assets/facebook.svg"
               alt="facebook 홈페이지로 연결된 facebook 로고"
             />
           </a>
@@ -30,7 +30,7 @@ function footer() {
             rel="noopener noreferrer"
           >
             <img
-              src="../../images/twitter.svg"
+              src="../src/assets/twitter.svg"
               alt="twitter 홈페이지로 연결된 twitter 로고"
             />
           </a>
@@ -40,7 +40,7 @@ function footer() {
             rel="noopener noreferrer"
           >
             <img
-              src="../../images/youtube.svg"
+              src="../src/assets/youtube.svg"
               alt="youtube 홈페이지로 연결된 youtube 로고"
             />
           </a>
@@ -50,7 +50,7 @@ function footer() {
             rel="noopener noreferrer"
           >
             <img
-              src="../../images/instagram.svg"
+              src="../src/assets/instagram.svg"
               alt="instagram 홈페이지로 연결된 instagram 로고"
             />
           </a>
@@ -60,4 +60,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;
