@@ -1,42 +1,32 @@
-.searchbar-section {
+.SearchBar-section {
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin-top: 40px;
 }
 
-.searchbar {
+.SearchBar {
   position: relative;
-  display: flex;
   width: 1060px;
-  padding: 15px 16px;
-  justify-content: space-between;
-  align-items: flex-start;
+  padding-left: 3.8rem;
+  padding-right: 1.6rem;
+
+  @media (min-width: 768px) {
+    height: 5.4rem;
+    padding-left: 4.2rem;
+    font-size: 1.6rem;
+    line-height: 150%;
+  }
 }
 
-.searchbar-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  top: 25px;
-  left: 30px;
+.SearchBar-input::placeholder {
+  color: var(--text-content-gray);
+  background-size: 16px;
+  padding-left: 20px;
+  background: url("../assets/Search.svg") no-repeat left;
 }
 
-.search-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.search-text {
-  color: var(--Text, #666);
-  text-align: right;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-}
-
-.searchbar-input {
+.SearchBar-input {
   width: 100%;
   padding: 15px 16px;
   border-radius: 10px;

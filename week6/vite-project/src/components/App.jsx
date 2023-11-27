@@ -1,6 +1,5 @@
-import "../style/Landing.css";
 import Nav from "./Nav";
-// import Header from "./Header";
+import Header from "./Header";
 import SearchBar from "./SearchBar";
 // import CardList from "./CardList";
 import Footer from "./Footer";
@@ -9,7 +8,7 @@ function App() {
   return (
     <div>
       <Nav />
-      {/* <Header /> */}
+      <Header />
       <SearchBar />
       {/* <CardList /> */}
       <Footer />

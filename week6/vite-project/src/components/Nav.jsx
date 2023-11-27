@@ -1,4 +1,4 @@
-import "../style/Landing.css";
+import "../style/Nav.css";
 
 function Nav() {
   return (
