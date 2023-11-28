@@ -3,10 +3,10 @@ import searchIcon from "../assets/search.svg";
 
 function SearchBar() {
   return (
-    <div className="SearchBar-section">
-      <div className="SearchBar">
+    <div className="searchbar-section">
+      <div className="searchbar">
         <input
-          className="SearchBar-input"
+          className="searchbar-input"
           type="search"
           placeholder="링크를 검색해 보세요."
         ></input>

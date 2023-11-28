@@ -61,3 +61,24 @@ nav {
     width: 12.8rem;
   }
 }
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-profile-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 70%;
+}
+
+.user-profile-email {
+  color: var(--linkbrary-gray-100, #373740);
+  font-size: 14px;
+  font-weight: 400;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

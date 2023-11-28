@@ -1,11 +1,11 @@
-.SearchBar-section {
+.searchbar-section {
   display: flex;
   justify-content: center;
   width: 100%;
   margin-top: 40px;
 }
 
-.SearchBar {
+.searchbar {
   position: relative;
   width: 1060px;
   padding-left: 3.8rem;
@@ -19,14 +19,14 @@
   }
 }
 
-.SearchBar-input::placeholder {
+.searchbar-input::placeholder {
   color: var(--text-content-gray);
   background-size: 16px;
   padding-left: 20px;
   background: url("../assets/Search.svg") no-repeat left;
 }
 
-.SearchBar-input {
+.searchbar-input {
   width: 100%;
   padding: 15px 16px;
   border-radius: 10px;
