@@ -17,10 +17,7 @@ function Nav() {
 
   useEffect(() => {
     getUserProfileData().then(response => setProfileData(response));
-    // console.log(profileData);
   }, []);
-
-  // console.log(profileData);
 
   return (
     <nav>
