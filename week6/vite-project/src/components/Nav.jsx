@@ -5,18 +5,18 @@ import "../style/Nav.css";
 function Nav() {
   const [profileData, setProfileData] = useState({});
 
-  async function getUserProfileData() {
-    const response = await fetch(`${API_URL}/user`);
-
-    if (!response.ok) {
-      throw new Error("프로필을 가져오는데 실패했습니다.");
+  async function getUserFolderData() {
+    try {
+      const response = await fetch(`${API_URL}/user`);
+      const userData = await response.json();
+      setProfileData(userData);
+    } catch (error) {
+      throw new Error("폴더 정보를 가져오는데 실패했습니다.");
     }
-    const userData = await response.json();
-    return userData;
   }
 
   useEffect(() => {
-    getUserProfileData().then(response => setProfileData(response));
+    getUserFolderData();
   }, []);
 
   return (
