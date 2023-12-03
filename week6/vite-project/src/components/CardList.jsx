@@ -3,7 +3,7 @@ import { API_URL } from "./Const";
 import { getTimeAgo } from "./TimeAgo";
 import "../style/CardList.css";
 
-function CardList() {
+function CardList({ onMouseOver, onMouseOut }) {
   const [cardLinkData, setCardLinkData] = useState({});
 
   async function getCardLinkData() {
@@ -21,16 +21,21 @@ function CardList() {
     return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
   }
 
-  const cards = cardLinkData?.folder?.links.map(item => (
-    <li key={item.id} className="card">
-      <img className="card-img" src={item.imageSource} alt={item.id} />
-      <div className="card-info">
-        <p className="card-timeAgo">{getTimeAgo(item.createdAt)}</p>
-        <p className="card-description">{item.description}</p>
-        <p className="card-createdAt">{formatDate(item.createdAt)}</p>
-      </div>
-    </li>
-  ));
+  // function HoverCard() {
+  //   const [isHovered, setIsHovered] = useState(false);
+  //   const handleMouseOver = () => setIsHovered(true);
+  //   const handleMouseLeave = () => setIsHovered(false);
+
+  //   const className = isHovered ? "card card-hovered" : "card";
+
+  //   return (
+  //     <div
+  //       className={className}
+  //       onMouseOver={handleMouseOver}
+  //       onMouseLeave={handleMouseLeave}
+  //     ></div>
+  //   );
+  // }
 
   useEffect(() => {
     getCardLinkData();
@@ -38,7 +43,29 @@ function CardList() {
 
   return (
     <div className="cardlist-section">
-      <ul className="cardlist">{cards}</ul>
+      <div className="cardlist">
+        {cardLinkData?.folder?.links.map(card => (
+          <div
+            key={card.id}
+            className="card"
+            onMouseOver={onMouseOver}
+            onMouseOut={onMouseOut}
+          >
+            <a href={card.url} target="_blank" rel="noopener noreferrer">
+              <img
+                className="card-img"
+                src={card.imageSource ?? "../src/assets/no-image.svg"}
+                alt={card.id}
+              />
+              <div className="card-info">
+                <p className="card-timeAgo">{getTimeAgo(card.createdAt)}</p>
+                <p className="card-description">{card.description}</p>
+                <p className="card-createdAt">{formatDate(card.createdAt)}</p>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
