@@ -29,7 +29,7 @@ function CardList() {
     <div className="cardlist-section">
       <div className="cardlist">
         {cardLinkData?.folder?.links.map(card => (
-          <div key={card.id} className="card">
+          <div key={card.id} className="card-section">
             <a href={card.url} target="_blank" rel="noopener noreferrer">
               <div className="card-img-section">
                 <img
