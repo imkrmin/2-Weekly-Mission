@@ -1,11 +1,8 @@
 nav {
   display: flex;
   justify-content: center;
-  position: sticky;
-  top: 0;
-  width: 100%;
+  padding: 33px 200px 32px 200px;
   background-color: #edf7ff;
-  z-index: 1;
 }
 
 .gnb {
@@ -23,7 +20,8 @@ nav {
 }
 
 .logo {
-  height: 1.6rem;
+  width: 133px;
+  height: 24px;
 
   @media screen and (min-width: 375px) and (max-width: 767px) {
     height: 2.4rem;

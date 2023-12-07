@@ -1,4 +1,4 @@
-export const API_URL = "https://bootcamp-api.codeit.kr/api/sample";
+export const API_URL = "https://bootcamp-api.codeit.kr/api";
 
 const second = 1000;
 const minute = second * 60;

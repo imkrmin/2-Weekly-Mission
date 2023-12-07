@@ -7,7 +7,7 @@ function Header() {
 
   async function getUserFolderData() {
     try {
-      const response = await fetch(`${API_URL}/folder`);
+      const response = await fetch(`${API_URL}/sample/folder`);
       const userFolderData = await response.json();
       setFolderData(userFolderData);
     } catch (error) {

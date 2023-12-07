@@ -1,4 +1,9 @@
-import { TIME_IN_MILLISECONDS } from "./Const";
+import { TIME_IN_MILLISECONDS } from "../components/Const";
+
+export function formatDate(value) {
+  const date = new Date(value);
+  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
+}
 
 export const getTimeAgo = createdAt => {
   const now = new Date();

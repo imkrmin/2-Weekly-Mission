@@ -7,7 +7,7 @@ function Nav() {
 
   async function getUserFolderData() {
     try {
-      const response = await fetch(`${API_URL}/user`);
+      const response = await fetch(`${API_URL}/sample/user`);
       const userData = await response.json();
       setProfileData(userData);
     } catch (error) {

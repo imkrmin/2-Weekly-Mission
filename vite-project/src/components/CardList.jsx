@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { API_URL } from "./Const";
-import { getTimeAgo } from "./TimeAgo";
-import { formatDate } from "./utils.jsx";
+import { formatDate, getTimeAgo } from "../utils/time";
 import "../style/CardList.css";
 
 function CardList() {
@@ -9,7 +8,7 @@ function CardList() {
 
   async function getCardLinkData() {
     try {
-      const response = await fetch(`${API_URL}/folder`);
+      const response = await fetch(`${API_URL}/sample/folder`);
       const linkData = await response.json();
       setCardLinkData(linkData);
     } catch (error) {
