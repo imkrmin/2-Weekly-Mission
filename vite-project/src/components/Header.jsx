@@ -3,7 +3,7 @@ import { API_URL } from "./Const";
 import "../style/Header.css";
 
 function Header() {
-  const [folderData, setFolderData] = useState({});
+  const [folderData, setFolderData] = useState(null);
 
   async function getUserFolderData() {
     try {

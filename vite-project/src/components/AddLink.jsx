@@ -20,7 +20,6 @@ function AddLink() {
   // }, []);
 
   return (
-    // <div className="header-section">
     <div className="addlink-section">
       <input
         className="addlink-input"
@@ -29,7 +28,6 @@ function AddLink() {
       ></input>
       <button className="addlink-button">추가하기</button>
     </div>
-    // </div>
   );
 }
 

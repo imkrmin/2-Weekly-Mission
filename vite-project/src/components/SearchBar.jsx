@@ -7,7 +7,7 @@ function SearchBar() {
         className="searchbar-input"
         type="search"
         placeholder="링크를 검색해 보세요."
-      ></input>
+      />
     </div>
   );
 }

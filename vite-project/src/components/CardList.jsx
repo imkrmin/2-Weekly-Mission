@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { API_URL } from "./Const";
 import { getTimeAgo } from "./TimeAgo";
+import { formatDate } from "./utils.jsx";
 import "../style/CardList.css";
 
 function CardList() {
@@ -16,11 +17,6 @@ function CardList() {
     }
   }
 
-  function formatDate(value) {
-    const date = new Date(value);
-    return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
-  }
-
   useEffect(() => {
     getCardLinkData();
   }, []);
@@ -28,20 +24,20 @@ function CardList() {
   return (
     <div className="cardlist-section">
       <div className="cardlist">
-        {cardLinkData?.folder?.links.map(card => (
-          <div key={card.id} className="card-section">
-            <a href={card.url} target="_blank" rel="noopener noreferrer">
+        {cardLinkData?.folder?.links.map(link => (
+          <div key={link.id} className="card-section">
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
               <div className="card-img-section">
                 <img
                   className="card-img"
-                  src={card.imageSource ?? "../src/assets/no-image.svg"}
-                  alt={card.id}
+                  src={link.imageSource ?? "../src/assets/no-image.svg"}
+                  alt={link.id}
                 />
               </div>
               <div className="card-info">
-                <p className="card-timeAgo">{getTimeAgo(card.createdAt)}</p>
-                <p className="card-description">{card.description}</p>
-                <p className="card-createdAt">{formatDate(card.createdAt)}</p>
+                <p className="card-timeAgo">{getTimeAgo(link.createdAt)}</p>
+                <p className="card-description">{link.description}</p>
+                <p className="card-createdAt">{formatDate(link.createdAt)}</p>
               </div>
             </a>
           </div>
