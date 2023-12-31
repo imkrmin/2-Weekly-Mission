@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
-import { API_URL } from "./Const";
+import {
+  SHARED_PAGE_API_URL,
+  FOLDER_PAGE_API_URL,
+} from "../constants/constant";
 import { formatDate, getTimeAgo } from "../utils/time";
 import "../style/CardList.css";
 
 function CardList() {
+  const apiUrl =
+    window.location.pathname === "/folder"
+      ? `${FOLDER_PAGE_API_URL}/1/folders`
+      : `${SHARED_PAGE_API_URL}/folder`;
+
   const [cardLinkData, setCardLinkData] = useState({});
 
   async function getCardLinkData() {
     try {
-      const response = await fetch(`${API_URL}/sample/folder`);
+      const response = await fetch(apiUrl);
       const linkData = await response.json();
       setCardLinkData(linkData);
     } catch (error) {

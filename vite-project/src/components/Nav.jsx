@@ -1,17 +1,41 @@
 import { useState, useEffect } from "react";
-import { API_URL } from "./Const";
+import {
+  SHARED_PAGE_API_URL,
+  FOLDER_PAGE_API_URL,
+} from "../constants/constant";
 import "../style/Nav.css";
 
 function Nav() {
+  const apiUrl =
+    window.location.pathname === "/folder"
+      ? `${FOLDER_PAGE_API_URL}/1`
+      : `${SHARED_PAGE_API_URL}/user`;
+
   const [profileData, setProfileData] = useState({});
 
   async function getUserFolderData() {
     try {
-      const response = await fetch(`${API_URL}/users/1`);
+      const response = await fetch(apiUrl);
       const userData = await response.json();
-      setProfileData(userData);
+
+      const formattedData =
+        window.location.pathname === "/folder"
+          ? {
+              id: userData.data[0].id,
+              name: userData.data[0].name,
+              email: userData.data[0].email,
+              profileImageSource: userData.data[0].image_source,
+            }
+          : {
+              id: userData.id,
+              name: userData.name,
+              email: userData.email,
+              profileImageSource: userData.profileImageSource,
+            };
+
+      setProfileData(formattedData);
     } catch (error) {
-      throw new Error("폴더 정보를 가져오는데 실패했습니다.");
+      throw new Error("프로필 정보를 가져오는데 실패했습니다.");
     }
   }
 
@@ -29,16 +53,14 @@ function Nav() {
             alt="홈으로 연결된 Linkbrary 로고"
           />
         </a>
-        {profileData && profileData.data && profileData.data.length > 0 ? (
+        {profileData && profileData.id ? (
           <div className="user-profile">
             <img
               className="user-profile-img"
-              src={profileData.data[0].image_source}
+              src={profileData.profileImageSource}
               alt="프로필 이미지"
             />
-            <span className="user-profile-email">
-              {profileData.data[0].email}
-            </span>
+            <span className="user-profile-email">{profileData.email}</span>
           </div>
         ) : (
           <a className="cta cta-short" href="signin.html">

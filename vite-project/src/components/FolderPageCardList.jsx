@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { API_URL } from "./Const";
+import { FOLDER_PAGE_API_URL } from "../constants/constant";
 import { formatDate, getTimeAgo } from "../utils/time";
 import "../style/CardList.css";
 
@@ -8,7 +8,7 @@ function FolderPageCardList() {
 
   async function getCardLinkData() {
     try {
-      const response = await fetch(`${API_URL}/users/1/links`);
+      const response = await fetch(`${FOLDER_PAGE_API_URL}/users/1/links`);
       const linkData = await response.json();
       setCardLinkData(linkData);
     } catch (error) {

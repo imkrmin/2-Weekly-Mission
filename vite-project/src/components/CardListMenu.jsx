@@ -1,13 +1,13 @@
 import "../style/CardListMenu.css";
 import { useState, useEffect } from "react";
-import { API_URL } from "./Const";
+import { FOLDER_PAGE_API_URL } from "../constants/constant";
 
 function CardListMenu() {
   const [cardListMenuData, setCardListMenukData] = useState({});
 
   async function getCardListMenuData() {
     try {
-      const response = await fetch(`${API_URL}/users/1/folders`);
+      const response = await fetch(`${FOLDER_PAGE_API_URL}/users/1/folders`);
       const linkData = await response.json();
       setCardListMenukData(linkData);
     } catch (error) {

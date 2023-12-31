@@ -1,4 +1,4 @@
-import { TIME_IN_MILLISECONDS } from "../components/Const";
+import { TIME_IN_MILLISECONDS } from "../constants/constant";
 
 export function formatDate(value) {
   const date = new Date(value);

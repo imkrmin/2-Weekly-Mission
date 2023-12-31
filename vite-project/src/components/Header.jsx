@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { API_URL } from "./Const";
+import { SHARED_PAGE_API_URL } from "../constants/constant";
 import "../style/Header.css";
 
 function Header() {
@@ -7,7 +7,7 @@ function Header() {
 
   async function getUserFolderData() {
     try {
-      const response = await fetch(`${API_URL}/sample/folder`);
+      const response = await fetch(`${SHARED_PAGE_API_URL}/folder`);
       const userFolderData = await response.json();
       setFolderData(userFolderData);
     } catch (error) {

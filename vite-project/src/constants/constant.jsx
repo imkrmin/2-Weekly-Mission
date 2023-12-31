@@ -1,4 +1,6 @@
-export const API_URL = "https://bootcamp-api.codeit.kr/api";
+export const SHARED_PAGE_API_URL = "https://bootcamp-api.codeit.kr/api/sample";
+
+export const FOLDER_PAGE_API_URL = "https://bootcamp-api.codeit.kr/api/users";
 
 const second = 1000;
 const minute = second * 60;

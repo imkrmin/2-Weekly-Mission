@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SharedPage from "./pages/SharedPage";
-import FolderPage from "./Pages/FolderPage";
+import FolderPage from "./pages/FolderPage";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 
