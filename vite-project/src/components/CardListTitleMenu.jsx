@@ -1,4 +1,4 @@
-import "../style/CardListTitle.css";
+import "../style/CardListTitleMenu.css";
 
 function CardListTitleMenu({ name }) {
   return (

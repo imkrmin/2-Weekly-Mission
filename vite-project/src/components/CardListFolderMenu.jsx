@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../style/CardListMenu.css";
+import "../style/CardListFolderMenu.css";
 
 function CardListFolderMenu({ cardListMenuData, onFolderSelect }) {
   const [selectedFolder, setSelectedFolder] = useState("전체");
