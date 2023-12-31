@@ -4,38 +4,56 @@ import CardList from "../components/CardList";
 import CardListFolderMenu from "../components/CardListFolderMenu";
 import CardListTitleMenu from "../components/CardListTitleMenu";
 import { useState, useEffect } from "react";
-import {
-  SHARED_PAGE_API_URL,
-  FOLDER_PAGE_API_URL,
-} from "../constants/constant";
+import { FOLDER_PAGE_API_URL } from "../constants/constant";
 
 function FolderPage() {
-  const apiUrl =
-    window.location.pathname === "/folder"
-      ? `${FOLDER_PAGE_API_URL}/1/folders`
-      : `${SHARED_PAGE_API_URL}/folder`;
-
+  const [cardListMenuData, setCardListMenuData] = useState({});
   const [cardLinkData, setCardLinkData] = useState({});
-  const [cardListMenuData, setCardListMenukData] = useState({});
   const [selectedFolderName, setSelectedFolderName] = useState("");
 
-  async function getCardLinkData() {
+  async function getFolderPageMenuData() {
     try {
-      const response = await fetch(apiUrl);
+      const response = await fetch(`${FOLDER_PAGE_API_URL}/1/folders`);
       const linkData = await response.json();
-      setCardLinkData(linkData);
-      setCardListMenukData(linkData);
+      setCardListMenuData(linkData);
     } catch (error) {
-      throw new Error("폴더 정보를 가져오는데 실패했습니다.");
+      throw new Error("데이터를 가져오는데 실패했습니다.");
     }
   }
 
-  const handleFolderSelect = folderName => {
-    setSelectedFolderName(folderName);
+  const getSharedPageCardLinkData = async folderId => {
+    try {
+      let apiUrl = `${FOLDER_PAGE_API_URL}/1/links`;
+
+      if (folderId) {
+        apiUrl += `?folderId=${folderId}`;
+      }
+
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      setCardLinkData(data);
+    } catch (error) {
+      throw new Error("링크를 가져오는데 실패했습니다.");
+    }
+  };
+
+  const handleMenuSelect = async folderName => {
+    const selectedFolder = cardListMenuData.data.find(
+      folder => folder.name === folderName
+    );
+
+    if (selectedFolder) {
+      setSelectedFolderName(folderName);
+      getSharedPageCardLinkData(selectedFolder.id);
+    } else {
+      setSelectedFolderName("");
+      getSharedPageCardLinkData();
+    }
   };
 
   useEffect(() => {
-    getCardLinkData();
+    getFolderPageMenuData();
+    getSharedPageCardLinkData();
   }, []);
 
   return (
@@ -44,7 +62,7 @@ function FolderPage() {
       <SearchBar />
       <CardListFolderMenu
         cardListMenuData={cardListMenuData}
-        onFolderSelect={handleFolderSelect}
+        onFolderSelect={handleMenuSelect}
       />
       <CardListTitleMenu name={selectedFolderName || "전체"} />
       <CardList cardLinkData={cardLinkData} />

@@ -7,15 +7,15 @@ import {
   FOLDER_PAGE_API_URL,
 } from "../constants/constant";
 
-function SharedPage() {
-  const apiUrl =
-    window.location.pathname === "/folder"
-      ? `${FOLDER_PAGE_API_URL}/1/folders`
-      : `${SHARED_PAGE_API_URL}/folder`;
+const apiUrl =
+  window.location.pathname === "/folder"
+    ? `${FOLDER_PAGE_API_URL}/1/folders`
+    : `${SHARED_PAGE_API_URL}/folder`;
 
+function SharedPage() {
   const [cardLinkData, setCardLinkData] = useState({});
 
-  async function getCardLinkData() {
+  async function getSharedPageCardLinkData() {
     try {
       const response = await fetch(apiUrl);
       const linkData = await response.json();
@@ -26,7 +26,7 @@ function SharedPage() {
   }
 
   useEffect(() => {
-    getCardLinkData();
+    getSharedPageCardLinkData();
   }, []);
 
   return (
