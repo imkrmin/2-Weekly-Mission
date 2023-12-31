@@ -1,9 +1,9 @@
 import "../style/CardListTitle.css";
 
-function CardListTitle() {
+function CardListTitleMenu({ name }) {
   return (
     <div className="cardlisttitle-section">
-      <div className="cardlisttitle">dd</div>
+      <div className="cardlisttitle">{name}</div>
       <div className="cardlisttitle-option">
         <button className="cardlisttitle-btn">
           {" "}
@@ -37,4 +37,4 @@ function CardListTitle() {
   );
 }
 
-export default CardListTitle;
+export default CardListTitleMenu;
