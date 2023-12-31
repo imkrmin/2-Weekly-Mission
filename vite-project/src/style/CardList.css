@@ -36,6 +36,12 @@
   overflow: hidden;
   border: 3px solid var(--color-blue);
 
+  &:hover {
+    .star-btn {
+      transform: scale(1);
+    }
+  }
+
   @media screen and (min-width: 375px) and (max-width: 767px) {
     width: 325px;
     height: 327px;
@@ -54,6 +60,7 @@
 }
 
 .card-img-section {
+  position: relative;
   width: 340px;
   height: 200px;
   overflow: hidden;
@@ -71,6 +78,14 @@
     width: 325px;
     height: 192px;
   }
+}
+
+.star-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 34px;
+  height: 34px;
 }
 
 .card-info {

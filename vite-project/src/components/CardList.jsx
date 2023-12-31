@@ -14,6 +14,13 @@ function CardList({ cardLinkData }) {
                   src={link.imageSource ?? "../src/assets/no-image.svg"}
                   alt={link.id}
                 />
+                <button>
+                  <img
+                    className="star-btn"
+                    src="src/assets/star.svg"
+                    alt="별 버튼"
+                  ></img>
+                </button>
               </div>
               <div className="card-info">
                 <p className="card-timeAgo">{getTimeAgo(link.createdAt)}</p>

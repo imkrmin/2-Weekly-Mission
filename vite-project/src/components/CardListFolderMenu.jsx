@@ -36,6 +36,7 @@ function CardListFolderMenu({ cardListMenuData, onFolderSelect }) {
       </div>
       <button className="cardlistfoldermenu-addbtn" type="button">
         <img src="src/assets/add.svg" alt="추가버튼" />
+        <span className="addbtn-text">폴더 추가</span>
       </button>
     </div>
   );

@@ -1,11 +1,17 @@
-.cardlisttitle-section {
+.cardlisttitlemenu-section {
   display: flex;
   justify-content: space-between;
   margin: 24px auto;
   width: 1060px;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 32px;
+  }
 }
 
-.cardlisttitle {
+.cardlisttitlemenu-title {
   color: #000;
   font-size: 24px;
   font-style: normal;
@@ -14,12 +20,12 @@
   letter-spacing: -0.2px;
 }
 
-.cardlisttitle-option {
+.cardlisttitlemenu-option {
   display: flex;
   gap: 12px;
 }
 
-.cardlisttitle-btn {
+.cardlisttitlemenu-btn {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -31,7 +37,7 @@
   line-height: normal;
 }
 
-.cardlisttitle-btn-icon {
+.cardlisttitlemenu-btn-icon {
   width: 18px;
   height: 18px;
 }

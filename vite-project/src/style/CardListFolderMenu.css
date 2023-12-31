@@ -3,10 +3,6 @@
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
-
-  @media screen and (max-width: 767px) {
-    padding: 0 32px;
-  }
 }
 
 .cardlistfoldermenu-btns {
@@ -46,29 +42,48 @@
   position: absolute;
   cursor: pointer;
   top: 25%;
-  left: 84%;
+  left: 84.5%;
   width: 16px;
   height: 16px;
+}
 
+.cardlistfoldermenu-addbtn img {
   @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.addbtn-text {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .addbtn-text {
     display: flex;
-    padding: 8px 24px;
+  }
+  .cardlistfoldermenu-section {
+    padding: 0 32px;
+  }
+  .cardlistfoldermenu-addbtn {
+    display: flex;
+    padding: 8px 10px;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    width: 135px;
+    height: 36px;
     border-radius: 20px;
     background: var(--linkbrary-primary-color, #6d6afe);
     color: var(--linkbrary-gray-10, #e7effb);
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
     letter-spacing: -0.3px;
 
     position: fixed;
-    bottom: 10%;
-    left: 50%;
+    left: 25%;
+    top: 40%;
     transform: translateX(-50%);
 
     z-index: 1;
