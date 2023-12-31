@@ -1,6 +1,19 @@
 .cardlistmenu-section {
+  display: flex;
+  justify-content: space-between;
   position: relative;
   margin-top: 40px;
+}
+
+.cardlistmenu {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  cursor: pointer;
 }
 
 .cardlistmenu-btns {
@@ -15,22 +28,10 @@
   font-weight: 400;
 }
 
-.cardlistmenu {
-  display: flex;
-  padding: 8px 12px;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
-  background: #fff;
-  cursor: pointer;
-}
-
 .cardlistmenu-addbtn {
   position: absolute;
   cursor: pointer;
-  right: 0;
-  top: 50%;
+  top: 25%;
   left: 84%;
   width: 16px;
   height: 16px;

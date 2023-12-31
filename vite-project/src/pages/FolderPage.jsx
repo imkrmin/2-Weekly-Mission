@@ -1,7 +1,8 @@
 import AddLink from "../components/AddLink";
 import SearchBar from "../components/SearchBar";
-import CardList from "../components/CardList";
+import FolderPageCardList from "../components/FolderPageCardList";
 import CardListMenu from "../components/CardListMenu";
+import CardListTitle from "../components/CardListTitle";
 
 function FolderPage() {
   return (
@@ -9,7 +10,8 @@ function FolderPage() {
       <AddLink />
       <SearchBar />
       <CardListMenu />
-      <CardList />
+      <CardListTitle />
+      <FolderPageCardList />
     </>
   );
 }

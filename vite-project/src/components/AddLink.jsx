@@ -20,14 +20,16 @@ function AddLink() {
   // }, []);
 
   return (
-    <div className="addlink-section">
-      <input
-        className="addlink-input"
-        type="search"
-        placeholder="링크를 추가해 보세요."
-      ></input>
-      <button className="addlink-button">추가하기</button>
-    </div>
+    <form className="addlink-section">
+      <div className="addlink">
+        <input
+          className="addlink-input"
+          type="search"
+          placeholder="링크를 추가해 보세요."
+        ></input>
+        <button className="addlink-button">추가하기</button>
+      </div>
+    </form>
   );
 }
 

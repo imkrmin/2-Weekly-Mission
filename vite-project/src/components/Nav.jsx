@@ -7,7 +7,7 @@ function Nav() {
 
   async function getUserFolderData() {
     try {
-      const response = await fetch(`${API_URL}/sample/user`);
+      const response = await fetch(`${API_URL}/users/1`);
       const userData = await response.json();
       setProfileData(userData);
     } catch (error) {
@@ -29,14 +29,16 @@ function Nav() {
             alt="홈으로 연결된 Linkbrary 로고"
           />
         </a>
-        {profileData ? (
+        {profileData && profileData.data && profileData.data.length > 0 ? (
           <div className="user-profile">
             <img
               className="user-profile-img"
-              src={profileData.profileImageSource}
+              src={profileData.data[0].image_source}
               alt="프로필 이미지"
             />
-            <span className="user-profile-email">{profileData.email}</span>
+            <span className="user-profile-email">
+              {profileData.data[0].email}
+            </span>
           </div>
         ) : (
           <a className="cta cta-short" href="signin.html">
