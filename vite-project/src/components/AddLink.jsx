@@ -27,7 +27,7 @@ function AddLink({ cardListMenuData }) {
             className="addlink-input"
             type="search"
             placeholder="링크를 추가해 보세요."
-          ></input>
+          />
           <button className="addlink-button" onClick={handleAddLink}>
             추가하기
           </button>

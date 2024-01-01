@@ -2,6 +2,7 @@ import { formatDate, getTimeAgo } from "../utils/time";
 import { useState, useEffect } from "react";
 import { transCardLinkData } from "../utils/transCardLinkData";
 import KebabModal from "./Modal/KebabModal";
+import Modal from "react-modal";
 import "../style/CardList.css";
 
 function CardList({ cardLinkData }) {
