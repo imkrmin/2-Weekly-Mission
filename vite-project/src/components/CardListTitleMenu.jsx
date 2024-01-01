@@ -3,7 +3,7 @@ import "../style/CardListTitleMenu.css";
 import Modal from "react-modal";
 // import ShareFolderMenuModal from "./Modal/ShareFolderMenuModal";
 import RenameFolderMenuModal from "./Modal/RenameFolderMenuModal";
-// import DeleteFolderMenuModal from "./Modal/DeleteFolderMenuModal";
+import DeleteFolderMenuModal from "./Modal/DeleteFolderMenuModal";
 
 function CardListTitleMenu({ name }) {
   const isAllFolderButton = name === "전체";
@@ -82,7 +82,7 @@ function CardListTitleMenu({ name }) {
       )}
       {isModalOpen && modalType === "delete" && (
         <Modal isOpen={isModalOpen}>
-          <DeleteFolderMenuModal onClose={handleCloseModal} />
+          <DeleteFolderMenuModal name={name} onClose={handleCloseModal} />
         </Modal>
       )}
     </div>

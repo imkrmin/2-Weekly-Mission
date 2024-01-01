@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../../style/RenameFolderMenuModal.css";
 
 function RenameFolderMenuModal({ name, onClose }) {
