@@ -53,10 +53,7 @@ function AddLinkModal({ onClose, cardListMenuData }) {
       >
         추가하기
       </button>
-      <button
-        className="addlinkmodal-folder-closebtn-section"
-        onClick={onClose}
-      >
+      <button className="addlinkmodal-folder-closebtn" onClick={onClose}>
         <img src="../../src/assets/close.svg" />
       </button>
     </div>

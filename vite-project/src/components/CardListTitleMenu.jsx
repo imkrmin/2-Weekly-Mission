@@ -1,7 +1,28 @@
+import { useState, useEffect } from "react";
 import "../style/CardListTitleMenu.css";
+import Modal from "react-modal";
+// import ShareFolderMenuModal from "./Modal/ShareFolderMenuModal";
+import RenameFolderMenuModal from "./Modal/RenameFolderMenuModal";
+// import DeleteFolderMenuModal from "./Modal/DeleteFolderMenuModal";
 
 function CardListTitleMenu({ name }) {
   const isAllFolderButton = name === "전체";
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
+
+  const handleOpenModal = type => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
 
   return (
     <div className="cardlisttitlemenu-section">
@@ -9,7 +30,10 @@ function CardListTitleMenu({ name }) {
       <div className="cardlisttitlemenu-option">
         {isAllFolderButton ? null : (
           <>
-            <button className="cardlisttitlemenu-btn">
+            <button
+              className="cardlisttitlemenu-btn"
+              onClick={() => handleOpenModal("share")}
+            >
               {" "}
               <img
                 className="cardlisttitlemenu-btn-icon"
@@ -18,7 +42,10 @@ function CardListTitleMenu({ name }) {
               />
               공유
             </button>
-            <button className="cardlisttitlemenu-btn">
+            <button
+              className="cardlisttitlemenu-btn"
+              onClick={() => handleOpenModal("rename")}
+            >
               {" "}
               <img
                 className="cardlisttitlemenu-btn-icon"
@@ -27,7 +54,10 @@ function CardListTitleMenu({ name }) {
               />
               이름변경
             </button>
-            <button className="cardlisttitlemenu-btn">
+            <button
+              className="cardlisttitlemenu-btn"
+              onClick={() => handleOpenModal("delete")}
+            >
               {" "}
               <img
                 className="cardlisttitlemenu-btn-icon"
@@ -39,6 +69,22 @@ function CardListTitleMenu({ name }) {
           </>
         )}
       </div>
+      {/* 
+      {isModalOpen && modalType === "share" && (
+        <Modal isOpen={isModalOpen}>
+          <ShareFolderMenuModal onClose={handleCloseModal} />
+        </Modal>
+      )} */}
+      {isModalOpen && modalType === "rename" && (
+        <Modal isOpen={isModalOpen}>
+          <RenameFolderMenuModal name={name} onClose={handleCloseModal} />
+        </Modal>
+      )}
+      {isModalOpen && modalType === "delete" && (
+        <Modal isOpen={isModalOpen}>
+          <DeleteFolderMenuModal onClose={handleCloseModal} />
+        </Modal>
+      )}
     </div>
   );
 }
