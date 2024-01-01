@@ -1,5 +1,7 @@
 import { formatDate, getTimeAgo } from "../utils/time";
+import { useState, useEffect } from "react";
 import { transCardLinkData } from "../utils/transCardLinkData";
+import KebabModal from "./Modal/KebabModal";
 import "../style/CardList.css";
 
 function CardList({ cardLinkData }) {
@@ -19,16 +21,25 @@ function CardList({ cardLinkData }) {
                     src={link.imageSource ?? "../src/assets/no-image.svg"}
                     alt={link.id}
                   />
-                  <button>
+                  <button className="star-btn">
                     <img
-                      className="star-btn"
+                      className="star-btn-img"
                       src="src/assets/star.svg"
                       alt="별 버튼"
                     ></img>
                   </button>
                 </div>
                 <div className="card-info">
-                  <p className="card-timeAgo">{getTimeAgo(link.createdAt)}</p>
+                  <div className="card-kebab-section">
+                    <p className="card-timeAgo">{getTimeAgo(link.createdAt)}</p>
+                    <button className="kebab-btn">
+                      <img
+                        className="kebab-btn-img"
+                        src="src/assets/kebab.svg"
+                        alt="케밥 버튼"
+                      />
+                    </button>
+                  </div>
                   <p className="card-description">{link.description}</p>
                   <p className="card-createdAt">{formatDate(link.createdAt)}</p>
                 </div>

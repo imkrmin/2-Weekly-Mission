@@ -58,7 +58,7 @@ function FolderPage() {
 
   return (
     <>
-      <AddLink />
+      <AddLink cardListMenuData={cardListMenuData} />
       <SearchBar />
       <CardListFolderMenu
         cardListMenuData={cardListMenuData}

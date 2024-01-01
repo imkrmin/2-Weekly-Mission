@@ -1,35 +1,47 @@
-// import { useState, useEffect } from "react";
-// import { API_URL } from "./Const";
+import { useState, useEffect } from "react";
 import "../style/AddLink.css";
+import AddLinkModal from "./Modal/AddLinkModal";
+import Modal from "react-modal";
 
-function AddLink() {
-  // const [folderData, setFolderData] = useState({});
+function AddLink({ cardListMenuData }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // async function getUserFolderData() {
-  //   try {
-  //     const response = await fetch(`${API_URL}/folder`);
-  //     const userFolderData = await response.json();
-  //     setFolderData(userFolderData);
-  //   } catch (error) {
-  //     throw new Error("폴더 정보를 가져오는데 실패했습니다.");
-  //   }
-  // }
+  const handleAddLink = e => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
 
-  // useEffect(() => {
-  //   getUserFolderData();
-  // }, []);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
 
   return (
-    <form className="addlink-section">
-      <div className="addlink">
-        <input
-          className="addlink-input"
-          type="search"
-          placeholder="링크를 추가해 보세요."
-        ></input>
-        <button className="addlink-button">추가하기</button>
-      </div>
-    </form>
+    <>
+      <form className="addlink-section">
+        <div className="addlink">
+          <input
+            className="addlink-input"
+            type="search"
+            placeholder="링크를 추가해 보세요."
+          ></input>
+          <button className="addlink-button" onClick={handleAddLink}>
+            추가하기
+          </button>
+        </div>
+      </form>
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen}>
+          <AddLinkModal
+            onClose={handleCloseModal}
+            cardListMenuData={cardListMenuData}
+          />
+        </Modal>
+      )}
+    </>
   );
 }
 

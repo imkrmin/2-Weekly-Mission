@@ -1,0 +1,23 @@
+.kebab-section {
+  display: flex;
+  width: 100px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  z-index: 1;
+}
+
+.kebab-menu {
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  color: var(--gray-light-gray-100, #333236);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
