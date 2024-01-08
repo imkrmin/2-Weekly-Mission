@@ -35,6 +35,7 @@
   border-radius: 1.5rem;
   overflow: hidden;
   border: 3px solid var(--color-blue);
+  cursor: pointer;
 
   &:hover {
     .star-btn-img {
@@ -101,6 +102,7 @@
 }
 
 .card-kebab-section {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

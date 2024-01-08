@@ -21,7 +21,7 @@
   justify-content: center;
 }
 
-.addfoldermenumodal-section {
+.deletefoldermodal-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,7 @@
   gap: 24px;
 }
 
-.addfoldermenumodal-title {
+.deletefoldermodal-title {
   color: var(--Linkbrary-gray100, #373740);
   font-family: Pretendard;
   font-size: 20px;
@@ -38,31 +38,17 @@
   line-height: normal;
 }
 
-.addfoldermenumodal-input {
-  display: flex;
-  width: 280px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
-  background: var(--Linkbrary-white, #fff);
-}
-
-.addfoldermenumodal-input::placeholder {
+.deletefoldermodal-foldername {
   color: var(--Linkbrary-gray60, #9fa6b2);
+  text-align: center;
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 22px; /* 157.143% */
 }
 
-.addfoldermenumodal-input:focus {
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-}
-
-.addfoldermenumodal-addbtn {
+.deletefoldermodal-deletebtn {
   display: flex;
   width: 280px;
   padding: 16px 20px;
@@ -70,10 +56,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(
-    --gra-purpleblue-to-skyblue,
-    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-  );
+  background: var(--Linkbrary-red, #ff5b56);
   color: var(--Grey-Light, #f5f5f5);
   font-family: Pretendard;
   font-size: 16px;
@@ -82,7 +65,7 @@
   line-height: normal;
 }
 
-.addfoldermenumodal-closebtn {
+.deletefoldermodal-closebtn {
   position: absolute;
   top: 10px;
   right: 10px;

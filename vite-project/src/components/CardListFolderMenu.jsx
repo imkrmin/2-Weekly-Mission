@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "../style/CardListFolderMenu.css";
-import AddFolderMenuModal from "./Modal/AddFolderMenuModal";
+import AddFolderModal from "./Modal/AddFolderModal";
 import Modal from "react-modal";
 
 function CardListFolderMenu({ folders, onFolderSelect }) {
@@ -60,7 +60,7 @@ function CardListFolderMenu({ folders, onFolderSelect }) {
       </button>
       {isModalOpen && (
         <Modal isOpen={isModalOpen}>
-          <AddFolderMenuModal onClose={handleCloseModal} folders={folders} />
+          <AddFolderModal onClose={handleCloseModal} folders={folders} />
         </Modal>
       )}
     </div>

@@ -1,18 +1,18 @@
 import "../../style/KebabModal.css";
 import Modal from "react-modal";
 
-function KebabModal({ onCloseModal }) {
+function KebabModal({ isOpen, onClose }) {
+  if (!isOpen) return null;
+
   return (
-    <Modal>
-      <div className="kebab-section">
-        <div className="kebab-menu" onClick={onCloseModal}>
-          삭제하기
-        </div>
-        <div className="kebab-menu" onClick={onCloseModal}>
-          폴더에 추가
-        </div>
+    <div className="kebab-section">
+      <div className="kebab-menu" onClick={onClose}>
+        삭제하기
       </div>
-    </Modal>
+      <div className="kebab-menu" onClick={onClose}>
+        폴더에 추가
+      </div>
+    </div>
   );
 }
 

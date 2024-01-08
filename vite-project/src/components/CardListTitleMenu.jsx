@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import "../style/CardListTitleMenu.css";
 import Modal from "react-modal";
-// import ShareFolderMenuModal from "./Modal/ShareFolderMenuModal";
-import RenameFolderMenuModal from "./Modal/RenameFolderMenuModal";
-import DeleteFolderMenuModal from "./Modal/DeleteFolderMenuModal";
+import ShareFolderModal from "./Modal/ShareFolderModal";
+import RenameFolderModal from "./Modal/RenameFolderModal";
+import DeleteFolderModal from "./Modal/DeleteFolderModal";
 
 function CardListTitleMenu({ name }) {
   const isAllFolderButton = name === "전체";
@@ -69,20 +69,20 @@ function CardListTitleMenu({ name }) {
           </>
         )}
       </div>
-      {/* 
+
       {isModalOpen && modalType === "share" && (
         <Modal isOpen={isModalOpen}>
-          <ShareFolderMenuModal onClose={handleCloseModal} />
+          <ShareFolderModal name={name} onClose={handleCloseModal} />
         </Modal>
-      )} */}
+      )}
       {isModalOpen && modalType === "rename" && (
         <Modal isOpen={isModalOpen}>
-          <RenameFolderMenuModal name={name} onClose={handleCloseModal} />
+          <RenameFolderModal name={name} onClose={handleCloseModal} />
         </Modal>
       )}
       {isModalOpen && modalType === "delete" && (
         <Modal isOpen={isModalOpen}>
-          <DeleteFolderMenuModal name={name} onClose={handleCloseModal} />
+          <DeleteFolderModal name={name} onClose={handleCloseModal} />
         </Modal>
       )}
     </div>
