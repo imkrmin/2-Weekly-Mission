@@ -3,7 +3,7 @@ import "../style/CardListFolderMenu.css";
 import AddFolderMenuModal from "./Modal/AddFolderMenuModal";
 import Modal from "react-modal";
 
-function CardListFolderMenu({ cardListMenuData, onFolderSelect }) {
+function CardListFolderMenu({ folders, onFolderSelect }) {
   const [selectedFolder, setSelectedFolder] = useState("전체");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -37,7 +37,7 @@ function CardListFolderMenu({ cardListMenuData, onFolderSelect }) {
         >
           전체
         </button>
-        {cardListMenuData?.data?.map(folder => (
+        {folders?.data?.map(folder => (
           <button
             key={folder.id}
             className={`cardlistfoldermenu-btn ${
@@ -60,10 +60,7 @@ function CardListFolderMenu({ cardListMenuData, onFolderSelect }) {
       </button>
       {isModalOpen && (
         <Modal isOpen={isModalOpen}>
-          <AddFolderMenuModal
-            onClose={handleCloseModal}
-            cardListMenuData={cardListMenuData}
-          />
+          <AddFolderMenuModal onClose={handleCloseModal} folders={folders} />
         </Modal>
       )}
     </div>

@@ -3,7 +3,7 @@ import "../style/AddLink.css";
 import AddLinkModal from "./Modal/AddLinkModal";
 import Modal from "react-modal";
 
-function AddLink({ cardListMenuData }) {
+function AddLink({ folders }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleAddLink = e => {
@@ -35,10 +35,7 @@ function AddLink({ cardListMenuData }) {
       </form>
       {isModalOpen && (
         <Modal isOpen={isModalOpen}>
-          <AddLinkModal
-            onClose={handleCloseModal}
-            cardListMenuData={cardListMenuData}
-          />
+          <AddLinkModal onClose={handleCloseModal} folders={folders} />
         </Modal>
       )}
     </>

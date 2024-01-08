@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../../style/AddLinkModal.css";
 
-function AddLinkModal({ onClose, cardListMenuData }) {
+function AddLinkModal({ onClose, folders }) {
   const [selectedFolder, setSelectedFolder] = useState("");
 
   const handleFolderSelect = folderName => {
@@ -15,7 +15,7 @@ function AddLinkModal({ onClose, cardListMenuData }) {
         <div className="addlinkmodal-subtitle">링크 주소</div>
       </div>
       <div className="addlinkmodal-folder-list">
-        {cardListMenuData?.data?.map(folder => (
+        {folders?.data?.map(folder => (
           <button
             key={folder.id}
             className={`addlinkmodal-folder-list-btns ${
@@ -31,12 +31,9 @@ function AddLinkModal({ onClose, cardListMenuData }) {
             >
               {folder.name}
             </div>
-            {typeof folder.link === "object" &&
-              typeof folder.link.count === "number" && (
-                <div className="addlinkmodal-folder-list-btn-count">
-                  {folder.link.count}개 링크
-                </div>
-              )}
+            <div className="addlinkmodal-folder-list-btn-count">
+              {folder?.link?.count}개 링크
+            </div>
             <img
               src="../../src/assets/check.svg"
               className={`addlinkmodal-folder-list-btn-check ${

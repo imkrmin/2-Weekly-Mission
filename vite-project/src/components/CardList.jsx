@@ -5,8 +5,8 @@ import KebabModal from "./Modal/KebabModal";
 import Modal from "react-modal";
 import "../style/CardList.css";
 
-function CardList({ cardLinkData }) {
-  const formattedData = transCardLinkData(cardLinkData);
+function CardList({ cardlinks }) {
+  const formattedData = transCardLinkData(cardlinks);
   const links = formattedData.links || [];
 
   return (

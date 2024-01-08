@@ -7,15 +7,15 @@ import { useState, useEffect } from "react";
 import { FOLDER_PAGE_API_URL } from "../constants/constant";
 
 function FolderPage() {
-  const [cardListMenuData, setCardListMenuData] = useState({});
-  const [cardLinkData, setCardLinkData] = useState({});
+  const [folders, setFolders] = useState({});
+  const [cardlinks, setCardLinks] = useState({});
   const [selectedFolderName, setSelectedFolderName] = useState("");
 
   async function getFolderPageMenuData() {
     try {
       const response = await fetch(`${FOLDER_PAGE_API_URL}/1/folders`);
-      const linkData = await response.json();
-      setCardListMenuData(linkData);
+      const folderData = await response.json();
+      setFolders(folderData);
     } catch (error) {
       throw new Error("데이터를 가져오는데 실패했습니다.");
     }
@@ -31,14 +31,14 @@ function FolderPage() {
 
       const response = await fetch(apiUrl);
       const data = await response.json();
-      setCardLinkData(data);
+      setCardLinks(data);
     } catch (error) {
       throw new Error("링크를 가져오는데 실패했습니다.");
     }
   };
 
   const handleMenuSelect = async folderName => {
-    const selectedFolder = cardListMenuData.data.find(
+    const selectedFolder = folders.data.find(
       folder => folder.name === folderName
     );
 
@@ -58,14 +58,11 @@ function FolderPage() {
 
   return (
     <>
-      <AddLink cardListMenuData={cardListMenuData} />
+      <AddLink folders={folders} />
       <SearchBar />
-      <CardListFolderMenu
-        cardListMenuData={cardListMenuData}
-        onFolderSelect={handleMenuSelect}
-      />
+      <CardListFolderMenu folders={folders} onFolderSelect={handleMenuSelect} />
       <CardListTitleMenu name={selectedFolderName || "전체"} />
-      <CardList cardLinkData={cardLinkData} />
+      <CardList cardlinks={cardlinks} />
     </>
   );
 }

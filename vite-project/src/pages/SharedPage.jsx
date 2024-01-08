@@ -13,13 +13,13 @@ const apiUrl =
     : `${SHARED_PAGE_API_URL}/folder`;
 
 function SharedPage() {
-  const [cardLinkData, setCardLinkData] = useState({});
+  const [cardlinks, setCardLinks] = useState({});
 
   async function getSharedPageCardLinkData() {
     try {
       const response = await fetch(apiUrl);
       const linkData = await response.json();
-      setCardLinkData(linkData);
+      setCardLinks(linkData);
     } catch (error) {
       throw new Error("폴더 정보를 가져오는데 실패했습니다.");
     }
@@ -33,7 +33,7 @@ function SharedPage() {
     <>
       <Header />
       <SearchBar />
-      <CardList cardLinkData={cardLinkData} />
+      <CardList cardlinks={cardlinks} />
     </>
   );
 }
