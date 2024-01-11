@@ -1,0 +1,91 @@
+.cardlistfoldermenu-section {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.cardlistfoldermenu-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-self: stretch;
+  align-items: center;
+  margin: 0 auto;
+  width: 1060px;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cardlistfoldermenu-btn {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  cursor: pointer;
+}
+
+.cardlistfoldermenu-btn:hover {
+  background: var(--linkbrary-gray-10, #e7effb);
+}
+
+.cardlistfoldermenu-btn.selected {
+  color: #fff;
+  background: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.cardlistfoldermenu-addbtn {
+  position: absolute;
+  cursor: pointer;
+  top: 25%;
+  left: 84.5%;
+  width: 16px;
+  height: 16px;
+}
+
+.cardlistfoldermenu-addbtn img {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.addbtn-text {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .addbtn-text {
+    display: flex;
+  }
+  .cardlistfoldermenu-section {
+    padding: 0 32px;
+  }
+  .cardlistfoldermenu-addbtn {
+    display: flex;
+    padding: 8px 10px;
+    justify-content: center;
+    align-items: center;
+    width: 135px;
+    height: 36px;
+    border-radius: 20px;
+    background: var(--linkbrary-primary-color, #6d6afe);
+    color: var(--linkbrary-gray-10, #e7effb);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
+
+    position: fixed;
+    left: 25%;
+    top: 40%;
+    transform: translateX(-50%);
+
+    z-index: 1;
+  }
+}

@@ -1,0 +1,96 @@
+import React, { useState, useEffect } from "react";
+import Modal from "react-modal";
+import ShareFolderModal from "./Modal/ShareFolderModal";
+import RenameFolderModal from "./Modal/RenameFolderModal";
+import DeleteFolderModal from "./Modal/DeleteFolderModal";
+import "../style/CardListTitleMenu.css";
+
+interface CardListTitleMenuProps {
+  name: string;
+}
+
+const CardListTitleMenu: React.FC<CardListTitleMenuProps> = ({ name }) => {
+  const isAllFolderButton = name === "전체";
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
+
+  const handleOpenModal = (type: string) => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
+
+  return (
+    <div className="cardlisttitlemenu-section">
+      <div className="cardlisttitlemenu-title">{name}</div>
+      <div className="cardlisttitlemenu-option">
+        {isAllFolderButton ? null : (
+          <>
+            <button
+              className="cardlisttitlemenu-btn"
+              onClick={() => handleOpenModal("share")}
+            >
+              {" "}
+              <img
+                className="cardlisttitlemenu-btn-icon"
+                src="src/assets/share.svg"
+                alt="공유 버튼"
+              />
+              공유
+            </button>
+            <button
+              className="cardlisttitlemenu-btn"
+              onClick={() => handleOpenModal("rename")}
+            >
+              {" "}
+              <img
+                className="cardlisttitlemenu-btn-icon"
+                src="src/assets/pen.svg"
+                alt="이름 변경 버튼"
+              />
+              이름변경
+            </button>
+            <button
+              className="cardlisttitlemenu-btn"
+              onClick={() => handleOpenModal("delete")}
+            >
+              {" "}
+              <img
+                className="cardlisttitlemenu-btn-icon"
+                src="src/assets/Group 36.svg"
+                alt="삭제 버튼"
+              />
+              삭제
+            </button>
+          </>
+        )}
+      </div>
+
+      {isModalOpen && modalType === "share" && (
+        <Modal isOpen={isModalOpen}>
+          <ShareFolderModal name={name} onClose={handleCloseModal} />
+        </Modal>
+      )}
+      {isModalOpen && modalType === "rename" && (
+        <Modal isOpen={isModalOpen}>
+          <RenameFolderModal name={name} onClose={handleCloseModal} />
+        </Modal>
+      )}
+      {isModalOpen && modalType === "delete" && (
+        <Modal isOpen={isModalOpen}>
+          <DeleteFolderModal name={name} onClose={handleCloseModal} />
+        </Modal>
+      )}
+    </div>
+  );
+};
+
+export default CardListTitleMenu;

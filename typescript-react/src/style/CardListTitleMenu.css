@@ -1,0 +1,43 @@
+.cardlisttitlemenu-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px auto;
+  width: 1060px;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 32px;
+  }
+}
+
+.cardlisttitlemenu-title {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.cardlisttitlemenu-option {
+  display: flex;
+  gap: 12px;
+}
+
+.cardlisttitlemenu-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--linkbrary-gray-60, #9fa6b2);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.cardlisttitlemenu-btn-icon {
+  width: 18px;
+  height: 18px;
+}

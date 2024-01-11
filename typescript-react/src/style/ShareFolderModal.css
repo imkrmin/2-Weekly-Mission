@@ -1,0 +1,80 @@
+.ReactModal__Content {
+  position: relative;
+  display: flex;
+  inset: auto !important;
+  padding: 32px 40px !important;
+  border-radius: 15px !important;
+  border: 1px solid var(--Stroke-light, #dee2e6) !important;
+  background: var(---Gray-White, #fff) !important;
+}
+
+.ReactModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sharefoldermodal-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.sharefoldermodal-title {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.sharefoldermodal-foldername {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+}
+
+.sharefoldermodal-sharelinks-section {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 18px;
+  gap: 32px;
+}
+
+.sharefoldermodal-sharelink {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.sharefoldermodal-sharelink > span {
+  color: var(--Linkbrary-gray100, #373740);
+  text-align: center;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+}
+
+.sharefoldermodal-closebtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
