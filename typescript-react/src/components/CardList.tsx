@@ -1,5 +1,5 @@
 import { formatDate, getTimeAgo } from "../utils/time";
-import { useState, MouseEvent } from "react";
+import { useState, MouseEvent, useEffect } from "react";
 import { transCardLinkData } from "../utils/transCardLinkData";
 import KebabModal from "./Modal/KebabModal";
 import "../style/CardList.css";
@@ -11,19 +11,27 @@ interface Link {
   title: string;
   description: string;
   imageSource: string | null;
+  folder: string; // 추가: 폴더 정보를 나타내는 속성
 }
 
 interface CardListProps {
   cardlinks: {
     links?: Link[];
   };
+  searchTerm: string;
+  selectedFolderName: string; // 추가: 선택된 폴더의 이름
 }
 
-function CardList({ cardlinks }: CardListProps) {
+function CardList({
+  cardlinks,
+  searchTerm,
+  selectedFolderName,
+}: CardListProps) {
   const transformedData = transCardLinkData(cardlinks);
-  const links: Link[] = transformedData.links ?? [];
+  const allLinks: Link[] = transformedData.links ?? [];
 
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [filteredLinks, setFilteredLinks] = useState<Link[]>([]);
 
   const handleOpenPopover = (
     event: MouseEvent<HTMLButtonElement, { stopPropagation: () => void }>
@@ -40,11 +48,38 @@ function CardList({ cardlinks }: CardListProps) {
     window.open(link.url, "_blank");
   };
 
+  const handleSearch = (searchTerm: string, folderName: string) => {
+    const lowercasedSearchTerm = searchTerm.toLowerCase();
+
+    const filtered = allLinks.filter(
+      link =>
+        ((folderName === "전체" || link.folder === folderName) &&
+          link.url &&
+          link.url.toLowerCase().includes(lowercasedSearchTerm)) ||
+        (link.title &&
+          link.title.toLowerCase().includes(lowercasedSearchTerm)) ||
+        (link.description &&
+          link.description.toLowerCase().includes(lowercasedSearchTerm)) ||
+        (link.imageSource &&
+          link.imageSource.toLowerCase().includes(lowercasedSearchTerm))
+    );
+
+    setFilteredLinks(filtered);
+    console.log(filtered);
+  };
+
+  useEffect(() => {
+    setFilteredLinks([]);
+    handleSearch(searchTerm, selectedFolderName);
+  }, [searchTerm, selectedFolderName]);
+
+  const linksToDisplay = filteredLinks.length > 0 ? filteredLinks : allLinks;
+
   return (
     <div className="cardlist-section">
-      {links.length > 0 ? (
+      {linksToDisplay.length > 0 ? (
         <div className="cardlist">
-          {links.map(link => (
+          {linksToDisplay.map(link => (
             <div
               key={link.id}
               className="card-section"

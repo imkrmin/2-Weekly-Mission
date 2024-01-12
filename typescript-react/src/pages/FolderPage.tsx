@@ -5,6 +5,7 @@ import CardListFolderMenu from "../components/CardListFolderMenu";
 import CardListTitleMenu from "../components/CardListTitleMenu";
 import { useState, useEffect } from "react";
 import { FOLDER_PAGE_API_URL } from "../constants/constant";
+import "../style/SearchBar.css";
 
 interface Owner {
   id: number;
@@ -45,6 +46,7 @@ function FolderPage() {
   const [folders, setFolders] = useState<FoldersData>({ data: [] });
   const [cardlinks, setCardLinks] = useState<CardLinks>({});
   const [selectedFolderName, setSelectedFolderName] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   async function getFolderPageMenuData() {
     try {
@@ -86,6 +88,10 @@ function FolderPage() {
     }
   };
 
+  const handleSearch = (searchTerm: string) => {
+    setSearchTerm(searchTerm);
+  };
+
   useEffect(() => {
     getFolderPageMenuData();
     getSharedPageCardLinkData();
@@ -94,10 +100,21 @@ function FolderPage() {
   return (
     <>
       <AddLink folders={folders} />
-      <SearchBar />
+      <SearchBar onSearch={handleSearch} />
+      {searchTerm && (
+        <div className="searchbar-result-section">
+          <div className="searchbar-termresult">{searchTerm}</div>
+          <div className="searchbar-result">으로 검색한 결과입니다.</div>
+        </div>
+      )}
+
       <CardListFolderMenu folders={folders} onFolderSelect={handleMenuSelect} />
       <CardListTitleMenu name={selectedFolderName || "전체"} />
-      <CardList cardlinks={cardlinks} />
+      <CardList
+        cardlinks={cardlinks}
+        searchTerm={searchTerm}
+        selectedFolderName={selectedFolderName}
+      />
     </>
   );
 }
