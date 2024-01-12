@@ -6,23 +6,28 @@ import "../style/CardList.css";
 
 interface Link {
   id: number;
-  url: string;
-  imageSource: string | null;
   createdAt: number;
+  url: string;
+  title: string;
   description: string;
+  imageSource: string | null;
 }
 
 interface CardListProps {
-  cardlinks: any;
+  cardlinks: {
+    links?: Link[];
+  };
 }
 
 function CardList({ cardlinks }: CardListProps) {
-  const transformedData: any = transCardLinkData(cardlinks);
-  const links: Link[] = transformedData.links || [];
+  const transformedData = transCardLinkData(cardlinks);
+  const links: Link[] = transformedData.links ?? [];
 
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
-  const handleOpenPopover = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleOpenPopover = (
+    event: MouseEvent<HTMLButtonElement, { stopPropagation: () => void }>
+  ) => {
     event.stopPropagation();
     setIsPopoverOpen(true);
   };

@@ -18,6 +18,7 @@ interface AddLinkProps {
 
 const AddLink: React.FC<AddLinkProps> = ({ folders }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddLinkVisible, setIsAddLinkVisible] = useState(true);
 
   const handleAddLink = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -30,11 +31,24 @@ const AddLink: React.FC<AddLinkProps> = ({ folders }) => {
 
   useEffect(() => {
     Modal.setAppElement("#root");
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsAddLinkVisible(scrollTop <= 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <>
-      <form className="addlink-section">
+      <form
+        className={`addlink-section ${isAddLinkVisible ? "" : "invisible"}`}
+      >
         <div className="addlink">
           <input
             className="addlink-input"

@@ -2,6 +2,22 @@
   width: 100%;
   padding: 60px 320px 90px;
   background: var(--linkbrary-bg, #f0f6ff);
+  opacity: 1;
+
+  &.invisible {
+    background: none;
+    position: fixed;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+
+    @media screen and (max-width: 767px) {
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
 
   @media screen and (min-width: 768px) {
     padding: 60px 32px 90px;

@@ -82,9 +82,9 @@
     letter-spacing: -0.3px;
 
     position: fixed;
-    left: 25%;
-    top: 40%;
-    transform: translateX(-50%);
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) translateY(300px);
 
     z-index: 1;
   }
