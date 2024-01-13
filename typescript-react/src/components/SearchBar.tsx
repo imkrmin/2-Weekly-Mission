@@ -12,6 +12,10 @@ function SearchBar({ onSearch }: SearchBarProps) {
     setSearchTerm(e.target.value);
     onSearch(e.target.value);
   };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSearch(searchTerm, e);
+  };
 
   return (
     <div className="searchbar-section">

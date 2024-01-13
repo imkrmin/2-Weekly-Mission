@@ -11,7 +11,7 @@ interface Link {
   title: string;
   description: string;
   imageSource: string | null;
-  folder: string; // 추가: 폴더 정보를 나타내는 속성
+  folder: string;
 }
 
 interface CardListProps {
@@ -19,7 +19,7 @@ interface CardListProps {
     links?: Link[];
   };
   searchTerm: string;
-  selectedFolderName: string; // 추가: 선택된 폴더의 이름
+  selectedFolderName: string;
 }
 
 function CardList({
@@ -48,32 +48,29 @@ function CardList({
     window.open(link.url, "_blank");
   };
 
-  const handleSearch = (searchTerm: string, folderName: string) => {
-    const lowercasedSearchTerm = searchTerm.toLowerCase();
-
+  const handleSearch = (searchTerm: string) => {
     const filtered = allLinks.filter(
       link =>
-        ((folderName === "전체" || link.folder === folderName) &&
-          link.url &&
-          link.url.toLowerCase().includes(lowercasedSearchTerm)) ||
+        (link.folder === selectedFolderName &&
+          link.url.toLowerCase().includes(searchTerm.toLowerCase())) ||
         (link.title &&
-          link.title.toLowerCase().includes(lowercasedSearchTerm)) ||
+          link.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
         (link.description &&
-          link.description.toLowerCase().includes(lowercasedSearchTerm)) ||
-        (link.imageSource &&
-          link.imageSource.toLowerCase().includes(lowercasedSearchTerm))
+          link.description.toLowerCase().includes(searchTerm.toLowerCase()))
     );
 
-    setFilteredLinks(filtered);
     console.log(filtered);
+
+    setFilteredLinks(filtered);
   };
 
   useEffect(() => {
     setFilteredLinks([]);
-    handleSearch(searchTerm, selectedFolderName);
+    handleSearch(searchTerm);
   }, [searchTerm, selectedFolderName]);
 
-  const linksToDisplay = filteredLinks.length > 0 ? filteredLinks : allLinks;
+  const linksToDisplay =
+    filteredLinks.length > 0 || searchTerm !== "" ? filteredLinks : allLinks;
 
   return (
     <div className="cardlist-section">
@@ -96,7 +93,7 @@ function CardList({
                     className="star-btn-img"
                     src="../src/assets/star.svg"
                     alt="별 버튼"
-                  ></img>
+                  />
                 </button>
               </div>
               <div className="card-info">
